@@ -1,0 +1,108 @@
+@-webkit-keyframes fade-transition {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes fade-transition {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.navigation {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-color: white;
+}
+.navigation:before, .navigation:after {
+  top: 45%;
+  height: 20px;
+  display: block;
+  position: absolute;
+  content: " ";
+}
+.navigation:before {
+  right: 15.5%;
+  width: 20px;
+  z-index: 20;
+  border-radius: 20px;
+  background-color: black;
+  -webkit-transition: all 0.3s ease-in-out ;
+  transition: all 0.3s ease-in-out ;
+}
+.navigation:after {
+  right: 0;
+  width: 20%;
+  background-color: white;
+  -webkit-transition: all 0.3s ease-in-out ;
+  transition: all 0.3s ease-in-out ;
+}
+.nav-opened .navigation:before {
+  right: 100%;
+}
+.nav-opened .navigation:after {
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out ;
+  transition: all 0.3s ease-in-out ;
+}
+
+.cross-hatch {
+  text-indent: -2000px;
+  left: 0;
+  top: 45%;
+  width: 100%;
+  height: 20px;
+  display: block;
+  position: absolute;
+  background-color: black;
+  content: " ";
+  border-radius: 20px;
+}
+.cross-hatch:before, .cross-hatch:after {
+  left: 0;
+  width: 100%;
+  height: 20px;
+  display: block;
+  position: absolute;
+  background-color: black;
+  content: " ";
+  z-index: 10;
+  border-radius: 20px;
+  /* @include fade-back; */
+  -webkit-transition: all 0.3s ease-in-out ;
+  transition: all 0.3s ease-in-out ;
+}
+.cross-hatch:before {
+  top: -450%;
+}
+.cross-hatch:after {
+  top: 450%;
+}
+
+.nav-opened .cross-hatch:before, .nav-opened .cross-hatch:after {
+  top: 0;
+  -webkit-animation: fade-transition ease-in-out 0.3s;
+  animation: fade-transition ease-in-out 0.3s;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: all 0.3s ease-in-out ;
+  transition: all 0.3s ease-in-out ;
+}
+.nav-opened .cross-hatch:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.nav-opened .cross-hatch:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
