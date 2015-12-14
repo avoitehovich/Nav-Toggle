@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="/assets/css/nav.css" media="all" rel="stylesheet" type="text/css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/assets/js/nav.js"></script>
+    <script>
+      $(document).ready(function() {
+        var $navBtn = $('.navigation');
+      
+        // console.log($navBtn);
+      
+        $('body').on('click', $navBtn, function() {
+          // console.log('clicked');
+      
+          // add class to toggle nav button
+          $(this).toggleClass('nav-opened');
+        });
+      
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navigation">
+      <span class="cross-hatch">&times;</span>
+    </div>
+  </body>
+</html>
